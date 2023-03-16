@@ -1,12 +1,23 @@
 // Hooks
-import { useWordle } from "../hooks/useWordle";
-import { useEffect } from "react";
+import { useWordle } from '../hooks/useWordle';
+import { useEffect } from 'react';
 
 // Types
-import { IWordle} from "../types";
+import { IWordle } from '../types';
 
-export const Wordle = ({solution, wordSet}:IWordle) => {
-  const { currentGuess, handleKeyup, pastGuesses, isCorrect, turn } = useWordle(solution);
+// Components
+import { Keyboard } from './Keyboard';
+import { Board } from './Board';
+
+export const Wordle = ({ solution, wordSet }: IWordle) => {
+  /* prettier-ignore */
+  const { 
+    currentGuess,
+    handleKeyup,
+    pastGuesses,
+    isCorrect,
+    turn 
+  } = useWordle(solution);
 
   useEffect(() => {
     window.addEventListener('keyup', handleKeyup);
@@ -15,12 +26,16 @@ export const Wordle = ({solution, wordSet}:IWordle) => {
   }, [handleKeyup]);
 
   useEffect(() => {
-    console.log({currentGuess, turn, isCorrect});
-  }, [pastGuesses, turn, isCorrect])
+    console.log({ currentGuess, turn, isCorrect });
+  }, [pastGuesses, turn, isCorrect]);
 
   return (
-    <div>
-      Current Guess: {currentGuess}
+    <div className="flex flex-col min-h-screen justify-between p-4 max-w-[720px] mx-auto gap-y-4">
+      <h1 className="text-4xl text-neutral-100 font-black text-center">
+        Lingo
+      </h1>
+      <Board guesses={pastGuesses} />
+      <Keyboard />
     </div>
-  )
-}
+  );
+};

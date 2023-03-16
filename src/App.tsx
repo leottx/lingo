@@ -1,29 +1,28 @@
 // Hooks
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 // Utils
-import { generateWordSet } from "./utils/words";
+import { generateWordSet } from './utils/words';
 
 // Components
-import { Wordle } from "./components/Wordle";
+import { Wordle } from './components/Wordle';
 
 function App() {
   const [solutionWord, setSolutionWord] = useState('');
   const [wordSet, setWordSet] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    generateWordSet().then(words => {
+    generateWordSet().then((words) => {
       setSolutionWord(words.word);
-      setWordSet(words.wordSet)
+      setWordSet(words.wordSet);
     });
   }, [setSolutionWord, setWordSet]);
 
   return (
-    <div>
-      <h1>Wordle Clone - New Logic</h1>
-      {solutionWord && <Wordle solution={'hello'} wordSet={wordSet}/>}
+    <div className="w-full bg-neutral-800">
+      {solutionWord && <Wordle solution={solutionWord} wordSet={wordSet} />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
