@@ -8,15 +8,25 @@ module.exports = {
       },
       keyframes: {
         flip: {
-          '0%': { transform: 'rotateX(0)', backgroundColor: '#525252' },
-          '45%': { transform: 'rotateX(90deg)', backgroundColor: '#525252' },
+          '0%': {
+            transform: 'rotateX(0)',
+            backgroundColor: '#525252',
+            border: '2px solid #a3a3a3',
+          },
+          '45%': {
+            transform: 'rotateX(90deg)',
+            backgroundColor: '#525252',
+            border: '2px solid #a3a3a3',
+          },
           '55%': {
             transform: 'rotateX(90deg)',
             backgroundColor: 'var(--tile-bg)',
+            border: ' 2px solid transparent',
           },
           '100%': {
             transform: 'rotateX(0)',
             backgroundColor: 'var(--tile-bg)',
+            border: '2px solid transparent',
           },
         },
         recoil: {
