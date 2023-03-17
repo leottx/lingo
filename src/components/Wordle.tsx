@@ -10,7 +10,6 @@ import { Keyboard } from './Keyboard';
 import { Board } from './Board';
 
 export const Wordle = ({ solution, wordSet }: IWordle) => {
-  console.log(solution);
   /* prettier-ignore */
   const { 
     currentGuess,

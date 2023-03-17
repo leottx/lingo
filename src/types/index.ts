@@ -18,6 +18,4 @@ export type KeyProps = {
 export type BoardRowProps = {
   guess: Guess | undefined;
   currentGuess: string;
-  isCurrentRow: boolean;
-  doNotWait: boolean;
 };

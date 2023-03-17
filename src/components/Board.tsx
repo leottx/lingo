@@ -14,20 +14,10 @@ export const Board = ({ currentGuess, guesses, turn }: IBoard) => {
               key={`row-${index}`}
               guess={guess}
               currentGuess={currentGuess}
-              isCurrentRow={true}
-              doNotWait={turn === 0 ? true : false}
             />
           );
         }
-        return (
-          <BoardRow
-            key={`row-${index}`}
-            guess={guess}
-            currentGuess=""
-            isCurrentRow={false}
-            doNotWait={false}
-          />
-        );
+        return <BoardRow key={`row-${index}`} guess={guess} currentGuess="" />;
       })}
     </section>
   );
