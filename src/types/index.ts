@@ -6,7 +6,9 @@ export interface IWordle {
 export type Guess = { key: string; color: string }[];
 
 export interface IBoard {
-  guesses: Guess[];
+  guesses: (Guess | undefined)[];
+  currentGuess: string;
+  turn: number;
 }
 
 export type KeyProps = {
@@ -14,5 +16,8 @@ export type KeyProps = {
 };
 
 export type BoardRowProps = {
-  guess: Guess;
+  guess: Guess | undefined;
+  currentGuess: string;
+  isCurrentRow: boolean;
+  doNotWait: boolean;
 };

@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.green {
+  --tile-bg: #16a34a;
+}
+
+.yellow {
+  --tile-bg: #facc15;
+}
+
+.gray {
+  --tile-bg: #404040;
+}

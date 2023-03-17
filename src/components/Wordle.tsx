@@ -10,6 +10,7 @@ import { Keyboard } from './Keyboard';
 import { Board } from './Board';
 
 export const Wordle = ({ solution, wordSet }: IWordle) => {
+  console.log(solution);
   /* prettier-ignore */
   const { 
     currentGuess,
@@ -25,16 +26,12 @@ export const Wordle = ({ solution, wordSet }: IWordle) => {
     return () => window.removeEventListener('keyup', handleKeyup); // Desvincula o método handleKeyup do evento quando o componente for destruído.
   }, [handleKeyup]);
 
-  useEffect(() => {
-    console.log({ currentGuess, turn, isCorrect });
-  }, [pastGuesses, turn, isCorrect]);
-
   return (
     <div className="flex flex-col min-h-screen justify-between p-4 max-w-[720px] mx-auto gap-y-4">
       <h1 className="text-4xl text-neutral-100 font-black text-center">
         Lingo
       </h1>
-      <Board guesses={pastGuesses} />
+      <Board guesses={pastGuesses} currentGuess={currentGuess} turn={turn} />
       <Keyboard />
     </div>
   );

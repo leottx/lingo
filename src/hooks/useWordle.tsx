@@ -7,19 +7,12 @@ import { Guess } from '../types';
 export const useWordle = (solution: string) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState('');
-  const [pastGuesses, setPastGuesses] = useState<Guess[]>(
-    Array.from({ length: 6 }, () => {
-      let letter = [];
-
-      for (let i = 0; i < 5; i++) {
-        letter.push({ key: '', color: '' });
-      }
-
-      return letter;
-    })
+  const [pastGuesses, setPastGuesses] = useState<(Guess | undefined)[]>(
+    Array.from({ length: 6 }, () => undefined)
   ); // Cada tentativa é um array
   const [wordHistory, setWordHistory] = useState<string[]>([]); // Cada tentativa é uma string
   const [isCorrect, setIsCorrect] = useState(false);
+
   /*
     Formata uma tentativa em um array de objetos.
     Cada objeto representando uma letra da palavra tentada [{key: 'a', color: 'yellow'}]
