@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -5,6 +7,9 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         keysRow: 'repeat(32, 1fr)',
+      },
+      fontFamily: {
+        sans: ['Montserrat', ...fontFamily.sans],
       },
       keyframes: {
         flip: {
