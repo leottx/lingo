@@ -107,5 +107,34 @@ export const useWordle = (solution: string) => {
     }
   };
 
-  return { turn, currentGuess, pastGuesses, isCorrect, handleKeyup, usedKeys };
+  const handleKeyClick = (key: string) => {
+    if (/^[A-Za-z]$/.test(key)) {
+      if (currentGuess.length >= 5) return;
+      setCurrentGuess((prev) => prev + key);
+      return;
+    } else if (key === 'enter') {
+      if (
+        currentGuess.length < 5 ||
+        turn > 5 ||
+        wordHistory.includes(currentGuess)
+      )
+        return;
+
+      const formattedGuess = formatGuess();
+      addNewGuess(formattedGuess);
+      return;
+    } else if (key === 'back') {
+      setCurrentGuess((prev) => prev.slice(0, -1));
+    }
+  };
+
+  return {
+    turn,
+    currentGuess,
+    pastGuesses,
+    isCorrect,
+    handleKeyup,
+    usedKeys,
+    handleKeyClick,
+  };
 };

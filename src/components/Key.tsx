@@ -4,7 +4,7 @@ import cn from 'classnames';
 // Types
 import { KeyProps } from '../types';
 
-export const Key = ({ keyValue, color }: KeyProps) => {
+export const Key = ({ keyValue, color, handleKeyClick }: KeyProps) => {
   const isLetterA = keyValue === 'a';
   const isDelete = keyValue === 'back';
   const isLetterZ = keyValue === 'z';
@@ -24,6 +24,7 @@ export const Key = ({ keyValue, color }: KeyProps) => {
           ['!bg-neutral-700/80']: color === 'gray',
         }
       )}
+      onClick={() => handleKeyClick(keyValue)}
     >
       {isDelete ? (
         <MdOutlineBackspace className="text-base sm:text-xl md:text-2xl" />

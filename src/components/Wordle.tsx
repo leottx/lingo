@@ -18,7 +18,8 @@ export const Wordle = ({ solution, wordSet }: IWordle) => {
     pastGuesses,
     isCorrect,
     turn, 
-    usedKeys
+    usedKeys,
+    handleKeyClick
   } = useWordle(solution);
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export const Wordle = ({ solution, wordSet }: IWordle) => {
         Lingo
       </h1>
       <Board guesses={pastGuesses} currentGuess={currentGuess} turn={turn} />
-      <Keyboard usedKeys={usedKeys} />
+      <Keyboard usedKeys={usedKeys} handleKeyClick={handleKeyClick} />
       <ModalGameOver isCorrect={isCorrect} turn={turn} solution={solution} />
     </div>
   );

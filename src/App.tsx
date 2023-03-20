@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="w-full bg-neutral-800">
-      {solutionWord && <Wordle solution={'grape'} wordSet={wordSet} />}
+      {solutionWord && <Wordle solution={solutionWord} wordSet={wordSet} />}
     </div>
   );
 }

@@ -44,7 +44,7 @@ export const ModalGameOver = ({
                 </Dialog.Title>
                 <Dialog.Description>
                   You found the solution in{' '}
-                  <strong>{`${turn} ${turn > 1 ? 'guesess' : 'guess'}`}</strong>
+                  <strong>{`${turn} ${turn > 1 ? 'guesses' : 'guess'}`}</strong>
                 </Dialog.Description>
               </div>
             )}

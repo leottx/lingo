@@ -14,6 +14,7 @@ export interface IBoard {
 export type KeyProps = {
   keyValue: string;
   color: any;
+  handleKeyClick: (key: string) => void;
 };
 
 export type BoardRowProps = {
