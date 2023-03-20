@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 // Types
-import { Guess } from '../types';
+import { Guess, UsedKeys } from '../types';
 
 export const useWordle = (solution: string) => {
   const [turn, setTurn] = useState(0);
@@ -12,6 +12,7 @@ export const useWordle = (solution: string) => {
   ); // Cada tentativa é um array
   const [wordHistory, setWordHistory] = useState<string[]>([]); // Cada tentativa é uma string
   const [isCorrect, setIsCorrect] = useState(false);
+  const [usedKeys, setUsedKeys] = useState<UsedKeys>({});
 
   /*
     Formata uma tentativa em um array de objetos.
@@ -57,6 +58,26 @@ export const useWordle = (solution: string) => {
     });
     setWordHistory((prevWordHistory) => [...prevWordHistory, currentGuess]);
     setTurn((prevTurn) => prevTurn + 1);
+    setUsedKeys((prevUsedKeys) => {
+      formattedGuess.forEach((l) => {
+        const currentColor = prevUsedKeys[l.key];
+
+        if (l.color === 'green') {
+          prevUsedKeys[l.key] = 'green';
+          return;
+        }
+        if (l.color === 'yellow' && currentColor !== 'green') {
+          prevUsedKeys[l.key] = 'yellow';
+          return;
+        }
+        if (l.color === 'gray' && currentColor !== ('green' || 'yellow')) {
+          prevUsedKeys[l.key] = 'gray';
+          return;
+        }
+      });
+
+      return prevUsedKeys;
+    });
     setCurrentGuess('');
   };
 
@@ -86,5 +107,5 @@ export const useWordle = (solution: string) => {
     }
   };
 
-  return { turn, currentGuess, pastGuesses, isCorrect, handleKeyup };
+  return { turn, currentGuess, pastGuesses, isCorrect, handleKeyup, usedKeys };
 };

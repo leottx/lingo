@@ -1,6 +1,7 @@
+// Components
 import { Key } from './Key';
 
-export const Keyboard = () => {
+export const Keyboard = ({ usedKeys }: any) => {
   const keyValues = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'back'],
@@ -13,7 +14,8 @@ export const Keyboard = () => {
         return (
           <div key={keyRow[0]} className="grid grid-cols-keysRow gap-x-[6px]">
             {keyRow.map((keyValue) => {
-              return <Key key={keyValue} keyValue={keyValue} />;
+              const color = usedKeys[keyValue];
+              return <Key key={keyValue} keyValue={keyValue} color={color} />;
             })}
           </div>
         );

@@ -1,6 +1,3 @@
-// Hooks
-import { useState, useEffect } from 'react';
-
 // Utils
 import cn from 'classnames';
 

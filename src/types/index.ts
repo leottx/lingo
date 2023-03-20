@@ -13,9 +13,18 @@ export interface IBoard {
 
 export type KeyProps = {
   keyValue: string;
+  color: any;
 };
 
 export type BoardRowProps = {
   guess: Guess | undefined;
   currentGuess: string;
 };
+
+export type UsedKeys = { [key: string]: 'green' | 'yellow' | 'gray' };
+
+export interface IGameOverModal {
+  isCorrect: boolean;
+  turn: number;
+  solution: string;
+}
