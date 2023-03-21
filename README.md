@@ -79,7 +79,7 @@ git clone https://github.com/leottx/lingo.git
 
 ### Step 2
 
-- 👯 Clone this repo to your local machine using `git clone https://github.com/csorlandi/css-preview-react.git`
+- 👯 Clone this repo to your local machine using `git clone https://github.com/leottx/lingo.git`
 
 ### Step 3
 
