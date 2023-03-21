@@ -35,11 +35,11 @@ export const ModalAbout = ({ isOpen, setIsOpen }: IModal) => {
               <IoMdClose />
             </button>
             <Dialog.Panel className="mx-auto rounded-md rounded-tr-none w-full max-h-[490px] overflow-y-auto max-w-md bg-neutral-50 p-6 text-neutral-800 drop-shadow-lg">
-              <h1 className="mb-8">
+              <h2 className="mb-8">
                 <p className="text-sm font-medium">Hi, my name is</p>
                 <p className="text-2xl font-bold">Leonardo Teixeira 👋</p>
                 <p className="font-medium">Frontend Developer</p>
-              </h1>
+              </h2>
               <p className="leading-[1.7rem]">
                 This game is a Wordle clone. The original game was created by{' '}
                 <a
