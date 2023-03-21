@@ -29,3 +29,8 @@ export interface IGameOverModal {
   turn: number;
   solution: string;
 }
+
+export interface IModal {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}

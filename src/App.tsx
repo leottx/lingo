@@ -1,27 +1,16 @@
-// Hooks
-import { useState, useEffect } from 'react';
-
-// Utils
-import { generateWordSet } from './utils/words';
+// Pages
+import { HomePage } from './pages/HomePage';
 
 // Components
-import { Wordle } from './components/Wordle';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [solutionWord, setSolutionWord] = useState('');
-  const [wordSet, setWordSet] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    generateWordSet().then((words) => {
-      setSolutionWord(words.word);
-      setWordSet(words.wordSet);
-    });
-  }, [setSolutionWord, setWordSet]);
-
   return (
-    <div className="w-full bg-neutral-800">
-      {solutionWord && <Wordle solution={solutionWord} wordSet={wordSet} />}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
