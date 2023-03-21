@@ -18,7 +18,10 @@ export const BoardRow = ({ guess, currentGuess }: BoardRowProps) => {
           </div>
         ))}
         {[...Array(5 - letters.length)].map((_, index) => (
-          <div className="flex items-center justify-center w-1/4 aspect-square rounded-[4px] border-2 border-neutral-600 bg-none uppercase font-bold text-2xl sm:text-3xl md:text-4xl"></div>
+          <div
+            className="flex items-center justify-center w-1/4 aspect-square rounded-[4px] border-2 border-neutral-600 bg-none uppercase font-bold text-2xl sm:text-3xl md:text-4xl"
+            key={index}
+          ></div>
         ))}
       </div>
     );
@@ -56,7 +59,10 @@ export const BoardRow = ({ guess, currentGuess }: BoardRowProps) => {
     <div className="flex text-neutral-100 gap-x-[6px]">
       {[...Array(5)].map((_, index) => {
         return (
-          <div className="flex items-center justify-center w-1/4 aspect-square border-2 border-neutral-600 rounded-[4px] uppercase font-bold text-2xl sm:text-3xl md:text-4xl"></div>
+          <div
+            className="flex items-center justify-center w-1/4 aspect-square border-2 border-neutral-600 rounded-[4px] uppercase font-bold text-2xl sm:text-3xl md:text-4xl"
+            key={index}
+          ></div>
         );
       })}
     </div>

@@ -78,7 +78,7 @@ export const ModalAbout = ({ isOpen, setIsOpen }: IModal) => {
                     Twitter
                   </span>
                 </a>{' '}
-                and
+                and{' '}
                 <a
                   href="https://www.linkedin.com/in/leotx/"
                   className="inline-flex items-baseline outline-none"
