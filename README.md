@@ -1,5 +1,5 @@
 <h1 align="center">
-  Wordle Clone
+  Lingo
 </h1>
 
 <p align="center">A modern minimal Vite + React + TypeScript and Tailwind project.</p>
